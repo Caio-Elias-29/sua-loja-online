@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Loja Online</title>
+    <title>Sua Loja Online</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,17 @@
         }
         .container {
             padding: 2em;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        .search-container input {
+            padding: 0.5em;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         .product {
             background-color: white;
@@ -80,25 +91,28 @@
         <h1>Sua Loja Online</h1>
     </header>
     <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Pesquisar produtos..." onkeyup="searchProducts()">
+        </div>
         <div class="info">
             <h2>Sobre a Nossa Loja</h2>
             <p>Bem-vindo à sua loja online! Oferecemos produtos de alta qualidade que mantém você atualizado aos olhos do mundo. Nosso compromisso é com a segurança e a satisfação do cliente. Compre com confiança e desfrute de uma experiência de ter o que você precisa.</p>
         </div>
-        <div class="product">
+        <div class="product" data-name="Produto 1">
             <img src="https://via.placeholder.com/300" alt="Produto 1">
             <h2>Produto 1</h2>
             <p>Descrição do produto 1. Este produto é excelente para suas necessidades diárias.</p>
             <p class="price">R$100,00</p>
             <button>Comprar Agora</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Produto 2">
             <img src="https://via.placeholder.com/300" alt="Produto 2">
             <h2>Produto 2</h2>
             <p>Descrição do produto 2. Este produto é excelente para suas necessidades diárias.</p>
             <p class="price">R$150,00</p>
             <button>Comprar Agora</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Produto 3">
             <img src="https://via.placeholder.com/300" alt="Produto 3">
             <h2>Produto 3</h2>
             <p>Descrição do produto 3. Este produto é excelente para suas necessidades diárias.</p>
@@ -109,5 +123,22 @@
     <footer>
         <p>&copy; 2024 Minha Loja Online. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        function searchProducts() {
+            var input, filter, products, productName, i;
+            input = document.getElementById('searchInput');
+            filter = input.value.toLowerCase();
+            products = document.getElementsByClassName('product');
+
+            for (i = 0; i < products.length; i++) {
+                productName = products[i].getAttribute('data-name');
+                if (productName.toLowerCase().indexOf(filter) > -1) {
+                    products[i].style.display = "";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
