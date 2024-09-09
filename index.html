@@ -4,100 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sua Loja Online</title>
+    
+    <!-- Fonte moderna do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Content Security Policy para evitar injeção de scripts -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://via.placeholder.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+
     <style>
+        /* Corpo */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #2F4F4F;
+            background-color: #F5F5F5;
+            color: #333;
         }
+        
+        /* Cabeçalho */
         header {
-            background-color: #808080;
+            background-color: #4CAF50;
             color: white;
             padding: 1em 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+
+        /* Menu de navegação */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-around;
+            position: sticky;
+            top: 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em;
+            font-weight: bold;
+        }
+
+        /* Container principal */
         .container {
             padding: 2em;
         }
+
+        /* Barra de busca */
         .search-container {
             text-align: center;
             margin-bottom: 2em;
         }
+
         .search-container input {
-            padding: 0.5em;
+            padding: 0.7em;
             width: 80%;
             max-width: 400px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 1.1em;
         }
+
+        /* Estilo dos produtos */
         .product {
             background-color: white;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             margin-bottom: 2em;
-            padding: 1em;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 1.5em;
+            text-align: center;
+            transition: box-shadow 0.3s;
         }
+
+        .product:hover {
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
         .product img {
             max-width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 10px;
+            margin-bottom: 1em;
         }
+
         .product h2 {
+            font-size: 1.5em;
             color: #333;
+            margin-bottom: 0.5em;
         }
+
         .product p {
             color: #777;
+            margin-bottom: 1em;
         }
+
         .product .price {
             color: #4CAF50;
-            font-size: 1.2em;
-            margin: 1em 0;
+            font-size: 1.4em;
+            margin-bottom: 1em;
         }
+
+        /* Botão de compra */
         .product button {
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 0.5em 1em;
+            padding: 0.7em 1.5em;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
         }
+
         .product button:hover {
             background-color: #45a049;
         }
+
+        /* Rodapé fixo */
         footer {
-            background-color: #4CAF50;
+            background-color: #333;
             color: white;
             text-align: center;
-            padding: 1em 0;
+            padding: 1em;
             position: fixed;
             width: 100%;
             bottom: 0;
+            font-size: 0.9em;
         }
+
+        /* Mensagem de garantia e confiança */
         .info {
             background-color: white;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 1em;
+            border-radius: 10px;
+            padding: 1.5em;
             margin-bottom: 2em;
+            text-align: center;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1em;
+            }
+
+            .search-container input {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Cabeçalho -->
     <header>
         <h1>Sua Loja Online</h1>
     </header>
+
+    <!-- Menu de navegação -->
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Produtos</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+        <a href="#">Carrinho</a>
+    </nav>
+
+    <!-- Container principal -->
     <div class="container">
+        <!-- Barra de busca -->
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Pesquisar produtos..." onkeyup="searchProducts()">
         </div>
+
+        <!-- Informações sobre a loja -->
         <div class="info">
             <h2>Sobre a Nossa Loja</h2>
-            <p>Bem-vindo à sua loja online! Oferecemos produtos de alta qualidade que mantém você atualizado aos olhos do mundo. Nosso compromisso é com a segurança e a satisfação do cliente. Compre com confiança e desfrute de uma experiência de ter o que você precisa.</p>
+            <p>Bem-vindo à sua loja online! Oferecemos produtos de alta qualidade e um atendimento que coloca sua satisfação em primeiro lugar. Nossa missão é garantir que você tenha uma experiência de compra segura, confortável e agradável. Explore nossos produtos e compre com confiança!</p>
         </div>
+
+        <!-- Exemplo de produto 1 -->
         <div class="product" data-name="Produto 1">
             <img src="https://via.placeholder.com/300" alt="Produto 1">
             <h2>Produto 1</h2>
@@ -105,6 +196,8 @@
             <p class="price">R$100,00</p>
             <button>Comprar Agora</button>
         </div>
+
+        <!-- Exemplo de produto 2 -->
         <div class="product" data-name="Produto 2">
             <img src="https://via.placeholder.com/300" alt="Produto 2">
             <h2>Produto 2</h2>
@@ -112,6 +205,8 @@
             <p class="price">R$150,00</p>
             <button>Comprar Agora</button>
         </div>
+
+        <!-- Exemplo de produto 3 -->
         <div class="product" data-name="Produto 3">
             <img src="https://via.placeholder.com/300" alt="Produto 3">
             <h2>Produto 3</h2>
@@ -120,9 +215,13 @@
             <button>Comprar Agora</button>
         </div>
     </div>
+
+    <!-- Rodapé -->
     <footer>
         <p>&copy; 2024 Minha Loja Online. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Script de busca -->
     <script>
         function searchProducts() {
             var input, filter, products, productName, i;
@@ -140,5 +239,6 @@
             }
         }
     </script>
+
 </body>
 </html>
